@@ -1,0 +1,16 @@
+{
+    "name": "abraham/task-cli",
+    "autoload": {
+        "psr-4": {
+            "Abraham\\TaskCli\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Olaobaju Abraham",
+            "email": "olaobajua@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
