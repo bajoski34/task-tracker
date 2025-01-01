@@ -1,8 +1,9 @@
 {
-    "name": "abraham/task-cli",
+    "name": "abraham/task",
+    "description": "Task Manager CLI",
     "autoload": {
         "psr-4": {
-            "Abraham\\TaskCli\\": "src/"
+            "Abraham\\Task\\": "src/"
         }
     },
     "authors": [
@@ -11,6 +12,5 @@
             "email": "olaobajua@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {}
 }
