@@ -12,5 +12,8 @@
             "email": "olaobajua@gmail.com"
         }
     ],
+    "bin": [
+        "bin/task-cli"
+    ],
     "require": {}
 }
