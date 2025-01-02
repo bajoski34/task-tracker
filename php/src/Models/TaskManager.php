@@ -55,9 +55,13 @@ final class TaskManager {
         var_dump($this->register);
     }
 
+    public function list() {
+        return [...$this->register];
+    }
+
     private function get(int $id): Task {  
         if($id >= $this->length || $id < 0) {
-            throw new \Exception('Task Not Found');
+            throw new \Exception('Could not find the Task with ID '. ($id + 1) . PHP_EOL);
         }
 
         return $this->register[$id];
@@ -66,10 +70,11 @@ final class TaskManager {
     public function add(Task $task) {
         $this->register[] = $task;
         $this->length++;
+        $this->save();
         return $this;
     }
 
-    public function update(int $id, string $field, string $value) {
+    public function update(int $id, string $field, mixed $value) {
         $task = $this->get($id);
 
         if($field === 'name') {
@@ -77,10 +82,12 @@ final class TaskManager {
         }
 
         if($field === 'status') {
-            $task->updateStatus();
+            $task->updateStatus($value);
         }
 
         $this->register[$id] = $task;
+
+        $this->save();
         return $this;
     }
 

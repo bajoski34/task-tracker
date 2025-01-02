@@ -4,6 +4,4 @@ declare(strict_types=1);
 
 namespace Abraham\Task\Contracts;
 
-interface CommandInterface {
-    public function execute(): int;
-}
+interface CommandInterface {}

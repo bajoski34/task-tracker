@@ -11,7 +11,7 @@ final class Task {
         'status'
     ];
 
-    public function __construct(private string $name, private bool $status = false) {}
+    public function __construct(private string $name, private Status $status = Status::PENDING) {}
 
     public function getName() {
         return $this->name;
@@ -21,11 +21,15 @@ final class Task {
         return $this->status;
     }
 
+    public static function canUpdate(string $fieldName) {
+        return in_array($fieldName, self::$updateable);
+    }
+
     public function setName(string $name) {
         $this->name = $name;
     }
 
-    public function updateStatus() {
-        $this->status = !($this->status);
+    public function updateStatus(Status $status) {
+        $this->status = $status;
     }
 }
