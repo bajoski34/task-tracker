@@ -24,6 +24,10 @@ class AddCommand extends BaseCommand implements CommandInterface {
             throw new \Exception("Missing option name. please add ---name or -n to the command. ". PHP_EOL);
         }
 
+        if(!isset($inputArray['description']) && !isset($inputArray['desc'])) {
+            throw new \Exception("Missing option name. please add ---description or -desc to the command. ". PHP_EOL);
+        }
+
         if(!isset($inputArray['status'])) {
             $status = 0;
         } else {
@@ -43,7 +47,8 @@ class AddCommand extends BaseCommand implements CommandInterface {
         return new self(
             new Task(
                 $inputArray['name'] ?? $inputArray['n'],
-                $status
+                $status,
+                $inputArray['description'] ?? $inputArray['desc'],
             )
         );
     }

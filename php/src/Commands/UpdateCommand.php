@@ -38,6 +38,7 @@ class UpdateCommand extends BaseCommand implements CommandInterface {
             $this->fields['status'] = match ($this->fields['status']) {
                 'pending' => Status::PENDING,
                 'done' => Status::DONE,
+                'in-progress' => Status::INPROGRESS,
                 default => Status::PENDING
             };
         }

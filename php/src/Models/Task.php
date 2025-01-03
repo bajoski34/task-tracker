@@ -11,10 +11,25 @@ final class Task {
         'status'
     ];
 
-    public function __construct(private string $name, private Status $status = Status::PENDING) {}
+    private ?DateTime $created_at = null;
+    private ?DateTime $updated_at = null;
+
+    public function __construct(
+        private string $name, 
+        private Status $status = Status::PENDING,
+        private string $description = "",
+        ) {
+            $date = date("YYYY-mm-d");
+            $this->update_at = $date;
+            $this->update_at = $date;
+        }
 
     public function getName() {
         return $this->name;
+    }
+
+    public function getDescription() {
+        return $this->description;
     }
 
     public function getStatus() {

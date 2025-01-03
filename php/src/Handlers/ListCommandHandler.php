@@ -25,15 +25,15 @@ final class ListCommandHandler implements HandlerInterface {
 
         $filter = $args['filter'] ?? $args['f'] ?? "*";
 
-        // var_dump($args);
-
         $all = $this->manager->list();
         $pending = array_filter($all, fn($item) => $item->getStatus() === Status::PENDING );
         $done = array_filter($all, fn($item) => $item->getStatus() === Status::DONE );
+        $in_progess = array_filter($all, fn($item) => $item->getStatus() === Status::INPROGRESS );
     
         $list = match ($filter) {
             'pending' => $pending,
-            'done'=> $done ,
+            'done'=> $done,
+            "in-progress" => $in_progess,
             default => $all
         };
 
